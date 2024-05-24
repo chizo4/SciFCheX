@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "VERISCI" model with "BIOBERT" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.783410        0.691244             0.846154               0.811966
+Recall               0.464481        0.409836             0.473684               0.454545
+F1                   0.583190        0.514580             0.607362               0.582822

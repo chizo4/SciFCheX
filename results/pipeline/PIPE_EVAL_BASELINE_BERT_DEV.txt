@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "BASELINE" model with "BERT" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.715447        0.459350             0.611570               0.595041
+Recall               0.480874        0.308743             0.354067               0.344498
+F1                   0.575163        0.369281             0.448485               0.436364

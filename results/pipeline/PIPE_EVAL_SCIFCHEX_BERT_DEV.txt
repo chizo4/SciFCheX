@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "SCIFCHEX" model with "BERT" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.710204        0.469388             0.617886               0.593496
+Recall               0.475410        0.314208             0.363636               0.349282
+F1                   0.569558        0.376432             0.457831               0.439759

@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "BASELINE" model with "BM25" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.406504        0.284553             0.393130               0.377863
+Recall               0.546448        0.382514             0.492823               0.473684
+F1                   0.466200        0.326340             0.437367               0.420382

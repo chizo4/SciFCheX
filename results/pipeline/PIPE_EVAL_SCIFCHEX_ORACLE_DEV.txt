@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "SCIFCHEX" model with "ORACLE" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.772242        0.704626             0.902439               0.817073
+Recall               0.592896        0.540984             0.708134               0.641148
+F1                   0.670788        0.612056             0.793566               0.718499

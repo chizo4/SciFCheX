@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "VERISCI" model with "BM25" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.461942        0.414698             0.493333               0.471111
+Recall               0.480874        0.431694             0.531100               0.507177
+F1                   0.471218        0.423025             0.511521               0.488479

@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "SCIFCHEX" model with "BIOBERT" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.799065        0.724299             0.863248               0.829060
+Recall               0.467213        0.423497             0.483254               0.464115
+F1                   0.589655        0.534483             0.619632               0.595092

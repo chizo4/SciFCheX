@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "BASELINE" model with "SCIBERT" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.696751        0.462094             0.630435               0.608696
+Recall               0.527322        0.349727             0.416268               0.401914
+F1                   0.600311        0.398134             0.501441               0.484150

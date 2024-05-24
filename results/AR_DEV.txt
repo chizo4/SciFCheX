@@ -1,0 +1,146 @@
+THIS IS A MERGED VERSION OF ALL ABSTRACT RETRIEVAL EVAL RESULTS FOR "DEV" SET OF SCIFACT.
+
+It merges all results from files: AR_{EXPERIMENT}_{RETRIEVAL}_DEV.txt
+that can be found in results/abstract_retrieval/ path.
+
+The experiments include:
+- STANDARD EVAL: precision, recall, F1, hits (one/all).
+- RECALL@K EVAL.
+
+METHODS (listed in this order):
+- ORACLE
+- TFIDF
+- BM25
+- BGE-M3 (BM25)
+- BERT (BM25)
+- SCIBERT (BM25)
+- BIOBERT (BM25) **SCIFCHEX**
+
+NOTE: SCIFCHEX optimal method (BIOBERT) listed last with tag: **SCIFCHEX**
+
+----------------------------------------------------
+
+METHOD: "ORACLE"
+INFO: No retrieval, copies gold docs directly from dataset.
+      Used to analyze some dataset docs statistics.
+
+RESULTS for: "ORACLE" retrieval on "DEV" dataset.
+	Hit-one: 1.0
+	Hit-all: 1.0
+	RECALL: 1.0
+	PRECISION: 1.0
+	F1: 1.0
+
+RECALL@K for "ORACLE" retrieval on "DEV" dataset.
+	RECALL@1: 0.8995215311004785
+	RECALL@3: 0.9760765550239234
+	RECALL@5: 1.0
+	RECALL@10: 1.0
+    RECALL@20: 1.0
+
+----------------------------------------------------
+
+METHOD: "TFIDF"
+INFO: Sparse retrieval.
+
+RESULTS for: "TFIDF" retrieval on "DEV" dataset with K=3.
+	Hit-one: 0.8466666666666667
+	Hit-all: 0.8333333333333334
+	RECALL: 0.69377990430622
+	PRECISION: 0.16111111111111112
+	F1: 0.26149684400360684
+
+RECALL@K for "TFIDF" retrieval on "DEV" dataset.
+	RECALL@1: 0.5358851674641149
+	RECALL@3: 0.69377990430622
+	RECALL@5: 0.7559808612440191
+	RECALL@10: 0.8373205741626795
+    RECALL@20: 0.8947368421052632
+
+----------------------------------------------------
+
+METHOD: "BM25"
+INFO: Sparse retrieval.
+
+RESULTS for: "BM25" retrieval on "DEV" dataset with K=3.
+	Hit-one: 0.9033333333333333
+	Hit-all: 0.88
+	RECALL: 0.7799043062200957
+	PRECISION: 0.1811111111111111
+	F1: 0.2939585211902615
+
+RECALL@K for "BM25" retrieval on "DEV" dataset.
+	RECALL@1: 0.6507177033492823
+	RECALL@3: 0.7799043062200957
+	RECALL@5: 0.8277511961722488
+	RECALL@10: 0.9138755980861244
+	RECALL@20: 0.9186602870813397
+
+----------------------------------------------------
+
+METHOD: BGE-M3
+INFO: HYBRID retrieval: BM25 followed by BGE-M3 reranking, where:
+      BM25 (K=20)
+      BGE M3 (K<=3)
+
+RESULTS for: "BGE-M3" retrieval on "DEV" dataset .
+	Hit-one: 0.9
+	Hit-all: 0.8766666666666667
+	RECALL: 0.7559808612440191
+	PRECISION: 0.4010152284263959
+	F1: 0.5240464344941956
+
+RECALL@K for "BGE-M3" retrieval on "DEV" dataset.
+	RECALL@1: 0.722488038277512
+	RECALL@3: 0.8516746411483254
+	RECALL@5: 0.8947368421052632
+	RECALL@10: 0.9090909090909091
+	RECALL@20: 0.9186602870813397
+
+----------------------------------------------------
+
+METHOD: BERT
+INFO: HYBRID retrieval: BM25 followed by BERT classification, where:
+      BM25 (K=20)
+
+RESULTS for: "BERT" retrieval on "DEV" dataset.
+	Hit-one: 0.7366666666666667
+	Hit-all: 0.7166666666666667
+	RECALL: 0.5598086124401914
+	PRECISION: 0.8013698630136986
+	F1: 0.6591549295774648
+
+RECALL@K for "BERT": skipped, since inappropriate for the classifier.
+
+----------------------------------------------------
+
+METHOD: SCIBERT
+INFO: HYBRID retrieval: BM25 followed by SciBERT classification, where:
+      BM25 (K=20)
+
+RESULTS for: "SCIBERT" retrieval on "DEV" dataset.
+	Hit-one: 0.79
+	Hit-all: 0.77
+	RECALL: 0.6363636363636364
+	PRECISION: 0.8159509202453987
+	F1: 0.7150537634408601
+
+RECALL@K for "SCIBERT": skipped, since inappropriate for the classifier.
+
+----------------------------------------------------
+
+***SCIFCHEX***
+METHOD: BIOBERT
+INFO: HYBRID retrieval: BM25 followed by BioBERT-base classification, where:
+      BM25 (K=20)
+
+RESULTS for: "BIOBERT" retrieval on "DEV" dataset.
+	Hit-one: 0.7833333333333333
+	Hit-all: 0.7633333333333333
+	RECALL: 0.6267942583732058
+	PRECISION: 0.8618421052631579
+	F1: 0.7257617728531855
+
+RECALL@K for "BIOBERT": skipped, since inappropriate for the classifier.
+
+----------------------------------------------------

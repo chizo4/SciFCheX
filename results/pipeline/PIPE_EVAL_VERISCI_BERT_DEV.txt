@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "VERISCI" model with "BERT" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.794872        0.697436             0.825243               0.805825
+Recall               0.423497        0.371585             0.406699               0.397129
+F1                   0.552585        0.484848             0.544872               0.532051

@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "VERISCI" model with "SCIBERT" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.780374        0.691589             0.844828               0.818966
+Recall               0.456284        0.404372             0.468900               0.454545
+F1                   0.575862        0.510345             0.603077               0.584615

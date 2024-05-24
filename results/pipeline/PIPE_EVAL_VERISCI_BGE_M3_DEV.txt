@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "VERISCI" model with "BGE-M3" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.596610        0.525424             0.644578               0.614458
+Recall               0.480874        0.423497             0.511962               0.488038
+F1                   0.532526        0.468986             0.570667               0.544000

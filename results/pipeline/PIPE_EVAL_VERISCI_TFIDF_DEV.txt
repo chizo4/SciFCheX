@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "VERISCI" model with "TFIDF" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.526316        0.470395             0.556180               0.528090
+Recall               0.437158        0.390710             0.473684               0.449761
+F1                   0.477612        0.426866             0.511628               0.485788

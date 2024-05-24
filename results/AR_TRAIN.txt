@@ -1,0 +1,149 @@
+THIS IS A MERGED VERSION OF ALL ABSTRACT RETRIEVAL EVAL RESULTS FOR "TRAIN" SET OF SCIFACT.
+
+It merges all results from files: AR_{EXPERIMENT}_{RETRIEVAL}_TRAIN.txt
+that can be found in results/abstract_retrieval/ path.
+
+The experiments include:
+- STANDARD EVAL: precision, recall, F1, hits.
+- RECALL@K EVAL.
+
+METHODS (listed in this order):
+- ORACLE
+- TFIDF
+- BM25
+- BGE-M3 (BM25)
+- BERT (BM25)
+- SCIBERT (BM25)
+- BIOBERT (BM25) **SCIFCHEX**
+
+NOTE: SCIFCHEX optimal method (BIOBERT) listed last with tag: **SCIFCHEX**
+      Still, note that this method's results on TRAIN set are just added for
+      completeness, since the model was trained on this fold.
+
+----------------------------------------------------
+
+METHOD: "ORACLE"
+INFO: No retrieval, copies gold docs directly from dataset.
+      Used to analyze some dataset docs statistics.
+
+RESULTS for: "ORACLE" retrieval on "TRAIN" dataset.
+	Hit-one: 1.0
+	Hit-all: 1.0
+	RECALL: 1.0
+	PRECISION: 1.0
+	F1: 1.0
+
+RECALL@K for "ORACLE" retrieval on "TRAIN" dataset.
+	RECALL@1: 0.8953900709219859
+	RECALL@3: 0.9911347517730497
+	RECALL@5: 1.0
+	RECALL@10: 1.0
+	RECALL@20: 1.0
+
+----------------------------------------------------
+
+METHOD: "TFIDF"
+INFO: Sparse retrieval.
+
+RESULTS for: "TFIDF" retrieval on "TRAIN" dataset with K=3.
+	Hit-one: 0.865265760197775
+	Hit-all: 0.8355995055624228
+	RECALL: 0.7322695035460993
+	PRECISION: 0.17016893283889575
+	F1: 0.2761618187897024
+
+RECALL@K for "TFIDF" retrieval on "TRAIN" dataset.
+	RECALL@1: 0.5691489361702128
+	RECALL@3: 0.7322695035460993
+	RECALL@5: 0.8102836879432624
+	RECALL@10: 0.8812056737588653
+	RECALL@20: 0.9166666666666666
+
+----------------------------------------------------
+
+METHOD: "BM25"
+INFO: Sparse retrieval.
+
+RESULTS for: "BM25" retrieval on "TRAIN" dataset with K=3.
+	Hit-one: 0.9110012360939431
+	Hit-all: 0.8850432632880099
+	RECALL: 0.8102836879432624
+	PRECISION: 0.18829831067161104
+	F1: 0.3055834169174189
+
+RECALL@K for "BM25" retrieval on "TRAIN" dataset.
+	RECALL@1: 0.6666666666666666
+	RECALL@3: 0.8102836879432624
+	RECALL@5: 0.8794326241134752
+	RECALL@10: 0.9184397163120568
+	RECALL@20: 0.9450354609929078
+
+----------------------------------------------------
+
+METHOD: BGE-M3
+INFO: HYBRID retrieval: BM25 followed by BGE-M3 reranking, where:
+      BM25 (K=20)
+      BGE M3 (K<=3)
+
+RECALL@K for "BGE-M3" retrieval on "TRAIN" dataset.
+	RECALL@1: 0.7429078014184397
+	RECALL@3: 0.8670212765957447
+	RECALL@5: 0.9060283687943262
+	RECALL@10: 0.9414893617021277
+	RECALL@20: 0.9450354609929078
+
+RESULTS for: "BGE-M3" retrieval on "TRAIN" dataset .
+	Hit-one: 0.9258343634116193
+	Hit-all: 0.896168108776267
+	RECALL: 0.799645390070922
+	PRECISION: 0.42507068803016024
+	F1: 0.555076923076923
+
+----------------------------------------------------
+
+METHOD: BERT
+INFO: HYBRID retrieval: BM25 followed by BERT classification, where:
+      BM25 (K=20)
+
+RESULTS for: "BERT" retrieval on "TRAIN" dataset.
+	Hit-one: 0.9517923362175525
+	Hit-all: 0.9406674907292955
+	RECALL: 0.9113475177304965
+	PRECISION: 0.9941972920696325
+	F1: 0.9509713228492136
+
+RECALL@K for "BERT": skipped, since inappropriate for the classifier.
+
+----------------------------------------------------
+
+METHOD: SCIBERT
+INFO: HYBRID retrieval: BM25 followed by SciBERT classification, where:
+      BM25 (K=20)
+
+RESULTS for: "SCIBERT" retrieval on "TRAIN" dataset.
+	Hit-one: 0.9703337453646477
+	Hit-all: 0.9592088998763906
+	RECALL: 0.9379432624113475
+	PRECISION: 0.9981132075471698
+	F1: 0.96709323583181
+
+RECALL@K for "SCIBERT": skipped, since inappropriate for the classifier.
+
+----------------------------------------------------
+
+***SCIFCHEX***
+METHOD: BIOBERT
+INFO: HYBRID retrieval: BM25 followed by BioBERT-base classification, where:
+      BM25 (K=20)
+
+RESULTS for: "BIOBERT" retrieval on "TRAIN" dataset.
+	Hit-one: 0.9715698393077874
+	Hit-all: 0.9604449938195303
+	RECALL: 0.9397163120567376
+	PRECISION: 0.9981167608286252
+	F1: 0.9680365296803652
+
+RECALL@K for "BIOBERT": skipped, since inappropriate for the classifier.
+
+----------------------------------------------------
+

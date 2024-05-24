@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "VERISCI" model with "ORACLE" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.794118        0.713235             0.909677               0.851613
+Recall               0.590164        0.530055             0.674641               0.631579
+F1                   0.677116        0.608150             0.774725               0.725275

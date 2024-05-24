@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "BASELINE" model with "BIOBERT" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.712177        0.476015             0.664179               0.634328
+Recall               0.527322        0.352459             0.425837               0.406699
+F1                   0.605965        0.405024             0.518950               0.495627

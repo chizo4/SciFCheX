@@ -1,0 +1,6 @@
+RESULTS for: "ORACLE" retrieval on "DEV" dataset.
+	Hit-one: 1.0
+	Hit-all: 1.0
+	RECALL: 1.0
+	PRECISION: 1.0
+	F1: 1.0

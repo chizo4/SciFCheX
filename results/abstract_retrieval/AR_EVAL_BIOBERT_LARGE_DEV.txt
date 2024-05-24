@@ -1,0 +1,10 @@
+**These are manually added experimental results for BioBERT-large.**
+
+RUNNING ABSTRACT RETRIEVAL EVALUATION FOR 'dev' DATASET.
+
+RESULTS for: "BIOBERT" retrieval on "DEV" dataset.
+	Hit-one: 0.8333333333333334
+	Hit-all: 0.81
+	RECALL: 0.69377990430622
+	PRECISION: 0.7512953367875648
+	F1: 0.7213930348258706

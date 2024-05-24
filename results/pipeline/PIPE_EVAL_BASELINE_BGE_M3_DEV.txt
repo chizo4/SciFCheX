@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "BASELINE" model with "BGE_M3" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.517766        0.373096             0.525253               0.505051
+Recall               0.557377        0.401639             0.497608               0.478469
+F1                   0.536842        0.386842             0.511057               0.491400

@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "BASELINE" model with "TFIDF" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.440191        0.303828             0.423423               0.400901
+Recall               0.502732        0.346995             0.449761               0.425837
+F1                   0.469388        0.323980             0.436195               0.412993

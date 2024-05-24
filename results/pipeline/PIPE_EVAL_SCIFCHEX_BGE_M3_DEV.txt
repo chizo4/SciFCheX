@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "SCIFCHEX" model with "BGE_M3" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.614865        0.554054             0.684211               0.625731
+Recall               0.497268        0.448087             0.559809               0.511962
+F1                   0.549849        0.495468             0.615789               0.563158

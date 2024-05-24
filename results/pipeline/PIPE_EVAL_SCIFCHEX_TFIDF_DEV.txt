@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "SCIFCHEX" model with "TFIDF" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.518634        0.475155             0.561856               0.510309
+Recall               0.456284        0.418033             0.521531               0.473684
+F1                   0.485465        0.444767             0.540943               0.491315

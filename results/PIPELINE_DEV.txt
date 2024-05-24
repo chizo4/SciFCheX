@@ -1,0 +1,209 @@
+THIS IS A MERGED VERSION OF ALL PIPELINE EVAL RESULTS FOR "DEV" SET OF SCIFACT.
+
+It merges all results from files: PIPE_{MODEL}_{RETRIEVAL}_DEV.txt
+that can be found in results/pipeline/ path.
+
+The EXPERIMENTS include:
+- ABSTRACT-LEVEL performance.
+- SENTENCE-LEVEL performance.
+
+MODELS explained:
+- SCIFCHEX - pipeline built by fine-tuning SciBERT for RS (following similar
+             training techniques as in Wadden et al. (2020)), and using VERISCI's
+             LP RoBERTa-large.
+             RS TRANSFORMER: SciBERT (fine-tuned on SCIFACT).
+             LP TRANSFORMER: RoBERTa-large (fine-tuned on FEVER+SCIFACT).
+- BASELINE - pipeline built as SciFact-only replica of VERISCI, following
+             similar training techniques as in Wadden et al. (2020).
+             RS TRANSFORMER: RoBERTa-large (fine-tuned on SCIFACT).
+             LP TRANSFORMER: RoBERTa-large (fine-tuned on SCIFACT).
+- VERISCI -  pipeline connected to Wadden et al. (2020) LP/RS modules:
+             RS (self-trained) and LP (gathered from Allen AI resources),
+             since they pre-trained LP on FEVER:
+             RS TRANSFORMER: RoBERTa-large (fine-tuned on SCIFACT).
+             LP TRANSFORMER: RoBERTa-large (fine-tuned on FEVER+SCIFACT).
+
+NOTE #1:
+      Each model reports results for the following retrieval methods:
+      - ORACLE  - passess directly gold evidence, i.e., perfect AR scenario.
+      - TFIDF   - sparse retrieval method, implemented as Wadden et al. (2020).
+      - BM25    - another sparse retrieval approach (also, used for HYBRID).
+      - BGE-M3  - HYBRID: BM25 retrieval re-ranked by BGE-M3 neural reranker.
+      - BERT    - HYBRID: BM25 retrieval followed by SciFact-tuned BERT classifier.
+      - SCIBERT - HYBRID: BM25 retrieval followed by SciFact-tuned SciBERT classifier.
+      - BIOBERT - HYBRID: BM25 retrieval followed by SciFact-tuned BioBERT classifier.
+
+NOTE #2:
+    The last section of this file contains additional EXPERIMENTS for other
+    tested RS/LP model configurations, that were out-performed by other settings.
+
+----------------------------------------------------
+
+***MODEL: SCIFCHEX***
+
+PIPELINE RESULTS for "SCIFCHEX" model with "ORACLE" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.772242        0.704626             0.902439               0.817073
+Recall               0.592896        0.540984             0.708134               0.641148
+F1                   0.670788        0.612056             0.793566               0.718499
+
+PIPELINE RESULTS for "SCIFCHEX" model with "TFIDF" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.518634        0.475155             0.561856               0.510309
+Recall               0.456284        0.418033             0.521531               0.473684
+F1                   0.485465        0.444767             0.540943               0.491315
+
+PIPELINE RESULTS for "SCIFCHEX" model with "BM25" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.410000        0.302000             0.401434               0.369176
+Recall               0.560109        0.412568             0.535885               0.492823
+F1                   0.473441        0.348730             0.459016               0.422131
+
+PIPELINE RESULTS for "SCIFCHEX" model with "BGE_M3" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.614865        0.554054             0.684211               0.625731
+Recall               0.497268        0.448087             0.559809               0.511962
+F1                   0.549849        0.495468             0.615789               0.563158
+
+PIPELINE RESULTS for "SCIFCHEX" model with "BERT" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.710204        0.469388             0.617886               0.593496
+Recall               0.475410        0.314208             0.363636               0.349282
+F1                   0.569558        0.376432             0.457831               0.439759
+
+PIPELINE RESULTS for "SCIFCHEX" model with "SCIBERT" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.794393        0.724299             0.864407               0.822034
+Recall               0.464481        0.423497             0.488038               0.464115
+F1                   0.586207        0.534483             0.623853               0.593272
+
+PIPELINE RESULTS for "SCIFCHEX" model with "BIOBERT" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.783410        0.691244             0.846154               0.811966
+Recall               0.464481        0.409836             0.473684               0.454545
+F1                   0.583190        0.514580             0.607362               0.582822
+
+----------------------------------------------------
+
+***MODEL: BASELINE***
+
+PIPELINE RESULTS for "BASELINE" model with "ORACLE" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.740181        0.519637             0.728814               0.683616
+Recall               0.669399        0.469945             0.617225               0.578947
+F1                   0.703013        0.493544             0.668394               0.626943
+
+PIPELINE RESULTS for "BASELINE" model with "TFIDF" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.440191        0.303828             0.423423               0.400901
+Recall               0.502732        0.346995             0.449761               0.425837
+F1                   0.469388        0.323980             0.436195               0.412993
+
+PIPELINE RESULTS for "BASELINE" model with "BM25" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.406504        0.284553             0.393130               0.377863
+Recall               0.546448        0.382514             0.492823               0.473684
+F1                   0.466200        0.326340             0.437367               0.420382
+
+PIPELINE RESULTS for "BASELINE" model with "BGE_M3" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.517766        0.373096             0.525253               0.505051
+Recall               0.557377        0.401639             0.497608               0.478469
+F1                   0.536842        0.386842             0.511057               0.491400
+
+PIPELINE RESULTS for "BASELINE" model with "BERT" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.715447        0.459350             0.611570               0.595041
+Recall               0.480874        0.308743             0.354067               0.344498
+F1                   0.575163        0.369281             0.448485               0.436364
+
+PIPELINE RESULTS for "BASELINE" model with "SCIBERT" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.696751        0.462094             0.630435               0.608696
+Recall               0.527322        0.349727             0.416268               0.401914
+F1                   0.600311        0.398134             0.501441               0.484150
+
+PIPELINE RESULTS for "BASELINE" model with "BIOBERT" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.712177        0.476015             0.664179               0.634328
+Recall               0.527322        0.352459             0.425837               0.406699
+F1                   0.605965        0.405024             0.518950               0.495627
+
+----------------------------------------------------
+
+***MODEL: VERISCI***
+
+TESTED AR METHODS: ORACLE, TFIDF, BM25, BGE-M3, SCIBERT, BIOBERT.
+
+PIPELINE RESULTS for "VERISCI" model with "ORACLE" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.794118        0.713235             0.909677               0.851613
+Recall               0.590164        0.530055             0.674641               0.631579
+F1                   0.677116        0.608150             0.774725               0.725275
+
+PIPELINE RESULTS for "VERISCI" model with "TFIDF" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.526316        0.470395             0.556180               0.528090
+Recall               0.437158        0.390710             0.473684               0.449761
+F1                   0.477612        0.426866             0.511628               0.485788
+
+PIPELINE RESULTS for "VERISCI" model with "BM25" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.461942        0.414698             0.493333               0.471111
+Recall               0.480874        0.431694             0.531100               0.507177
+F1                   0.471218        0.423025             0.511521               0.488479
+
+PIPELINE RESULTS for "VERISCI" model with "BGE-M3" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.596610        0.525424             0.644578               0.614458
+Recall               0.480874        0.423497             0.511962               0.488038
+F1                   0.532526        0.468986             0.570667               0.544000
+
+PIPELINE RESULTS for "VERISCI" model with "BERT" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.794872        0.697436             0.825243               0.805825
+Recall               0.423497        0.371585             0.406699               0.397129
+F1                   0.552585        0.484848             0.544872               0.532051
+
+PIPELINE RESULTS for "VERISCI" model with "SCIBERT" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.780374        0.691589             0.844828               0.818966
+Recall               0.456284        0.404372             0.468900               0.454545
+F1                   0.575862        0.510345             0.603077               0.584615
+
+PIPELINE RESULTS for "VERISCI" model with "BIOBERT" retrieval on "DEV" dataset.
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.783410        0.691244             0.846154               0.811966
+Recall               0.464481        0.409836             0.473684               0.454545
+F1                   0.583190        0.514580             0.607362               0.582822
+
+----------------------------------------------------
+
+***OTHER EXPERIMENTS***
+
+All reported just for "ORACLE" retrieval. They were not further tested, since
+SCIFCHEX was found to work the best using BioBERT-large for both RS/LP.
+
+E1 - RS: BioBERT-base. LP: RoBERTa-large. Both fine-tuned on SciFact.
+                sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.739766        0.517544             0.715909               0.664773
+Recall               0.691257        0.483607             0.602871               0.559809
+F1                   0.714689        0.500000             0.654545               0.607792
+
+E2 - RS: BioBERT-base. LP: BioBERT-large. Both fine-tuned on SciFact.
+                sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.733333        0.527273             0.739645               0.680473
+Recall               0.661202        0.475410             0.598086               0.550239
+F1                   0.695402        0.500000             0.661376               0.608466
+
+E3 - RS: BioBERT-large. LP: RoBERTa-large. Both fine-tuned on SciFact.
+                sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.733945        0.522936             0.724138               0.655172
+Recall               0.655738        0.467213             0.602871               0.545455
+F1                   0.692641        0.493506             0.657963               0.595300
+
+E4 - RS: RoBERTa-large. LP: BioBERT-large. Both fine-tuned on SciFact.
+                sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.739938        0.532508             0.744186               0.691860
+Recall               0.653005        0.469945             0.612440               0.569378
+F1                   0.693759        0.499274             0.671916               0.624672

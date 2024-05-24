@@ -1,0 +1,6 @@
+PIPELINE RESULTS for "BASELINE" model with "ORACLE" retrieval on "DEV" dataset.
+
+           sentence_selection  sentence_label  abstract_label_only  abstract_rationalized
+Precision            0.740181        0.519637             0.728814               0.683616
+Recall               0.669399        0.469945             0.617225               0.578947
+F1                   0.703013        0.493544             0.668394               0.626943
