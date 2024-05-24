@@ -53,7 +53,7 @@ While developing the final pipeline for `SciFCheX`, the experiments included exp
 **Thus, the most optimal settings concluded for the `SciFCheX` pipeline consists of:**
 - `AR`: `BM25 + SciBERT` classifier fine-tuned on `SciFact`. More about `AR` training can be found [here](https://github.com/chizo4/SciFCheX/blob/main/pipeline/training/ar_transformer_scifact.py).
 - `RS`: `SciBERT` transformer fine-tuned on `SciFact` to select rationales. More about `RS` training can be found [here](https://github.com/chizo4/SciFCheX/blob/main/pipeline/training/rs_transformer_scifact.py).
-- `LP`: `BioBERT-large` transformer fine-tuned on `SciFact` to predict final veridict, e.g. `"SUPPORT"`, `"CONTRADICT"`. More about `LP` training can be found [here](https://github.com/chizo4/SciFCheX/blob/main/pipeline/training/lp_transformer_scifact.py).
+- `LP`: `RoBERTa-large` transformer fine-tuned on `FEVER+SciFact`; this model was accessed from `VERISCI` resources, since this project did not include fine-tuning on `FEVER` (due to computational limitations).
 
 ## **Performance** 🏎️
 
