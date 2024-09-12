@@ -1,7 +1,7 @@
 # **`SciFCheX: Developing a Scientific Fact-Checker with Hybrid Evidence Retrieval Approaches`** 📟
 
 > [!NOTE]
-> This is the official public release of the `SciFCheX`, scientific fact-checking pipeline, authored by Filip J. Cierkosz. This research project has been pursued in completion of *BSc Computer Science* degree at the *University of Sheffield*. The development version of this project (which contains approx. 500 commits) will remain private. The introduced scientific verification pipeline consists of: *evidence retrieval*, *rationale selection*, and *label prediction* stages. Please note that this project was particularly focused on experimenting with novel approaches associated with the first stage of the pipeline, i.e., *evidence retrieval*. On top of that, the presented solution addresses the `SCIVER` shared task, and has been submitted to its [official leaderboard](https://leaderboard.allenai.org/scifact/submissions/) hosted by Allen AI that can be found here. More descriptions about the performance can be found in [this section](#performance-).
+> This is the official public release of the `SciFCheX`, scientific fact-checking pipeline, authored by Filip J. Cierkosz. This research project has been pursued in completion of the *BSc Computer Science* degree at the <a href="https://www.sheffield.ac.uk/">University of Sheffield</a> as a final-year project, which achieved a high-marked distinction. The development version of this project (which contains approx. 500 commits) will remain private. The introduced scientific verification pipeline consists of: *evidence retrieval*, *rationale selection*, and *label prediction* stages. Please note that this project was particularly focused on experimenting with novel approaches associated with the first stage of the pipeline, i.e., *evidence retrieval*. On top of that, the presented solution addresses the `SCIVER` shared task, and has been submitted to its [official leaderboard](https://leaderboard.allenai.org/scifact/submissions/) hosted by Allen AI that can be found here. The project ranked in TOP 50 worldwide submissions at the time of its publication. More descriptions about the performance can be found in [this section](#performance-).
 
 ## **Table of Contents** 📖
 
@@ -16,12 +16,12 @@
 
 ## **Project Structure** 🔎
 
-The section contains brief clarifications about the project resources that can be found within this repository. It is strongly advised to visit individual files for further context about implementations, since each of them has been annotated with a comprehensive amount of documentation:
+The section contains brief clarifications about the project resources that can be found within this repository. It is strongly advised to visit individual files for further context about implementations, since each of them has been annotated with quite a comprehensive amount of documentation:
 - `.github` - Standard `git` setup that contains `PR template`, `workflows`, etc.
-- `data` - Full copy of the `SciFact` dataset from the paper titled "[Fact or Fiction: Verifying Scientific Claims](https://github.com/allenai/scifact)" by *Wadden et al. (2020)*. The dataset contains 1,409 samples provided with a corpus of 5,183 abstract documents. In essence, it was used for training and evaluation of the presented model.
+- `data` - Full copy of the `SciFact` dataset from the paper titled "[Fact or Fiction: Verifying Scientific Claims](https://arxiv.org/abs/2004.14974)" by *Wadden et al. (2020)*. The dataset contains 1,409 samples provided with a corpus of 5,183 abstract documents. The data was used for training and evaluations of the presented pipeline.
 - `pipeline` - The full-implementation of the `SciFCheX` system, which consists of the following packages:
     - `eval` - Implements the `AbstractRetrievalEvaluator` and `PipelineEvaluator` classes and their respective `tools`. This toolkit is essential to evaluate the model performance on different levels of complexity.
-    - `inference` - Handles the pipeline flow when running predictions at inference time. It consists of: `abstract_retieval -> rationale_selection -> label_prediction`. Notably, the `abstract_retrieval` package contains all retrieval implementations employed by this research (i.e., `TF-IDF`, `BM25`, `BM25 + BGE-M3`, `BM25 + BERT`, `BM25 + SciBERT`, `BM25 + BioBERT`).
+    - `inference` - Handles the pipeline flow when running predictions at inference time. It consists of: `abstract_retieval -> rationale_selection -> label_prediction`. Notably, the `abstract_retrieval` package contains all retrieval implementations tested during this research (i.e., `TF-IDF`, `BM25`, `BM25 + BGE-M3`, `BM25 + BERT`, `BM25 + SciBERT`, `BM25 + BioBERT`).
     - `training` - Includes the `PyTorch` implementation for the training of `abstract retrieval` (only for `BERT`-based retrieval settings), `rationale selection`, and `label prediction`, and their associated `tools`.
 - `results` - The directory stores all the experimental results obtained from different experiments. These are automatically created by `eval` package, whenever evaluation is completed. `results/abstract_retrieval` contains AR-only experimental results, whereas `results/pipeline` has the ones for full-pipeline runs.
 - `resources` - Contains project related resources, e.g., images.
@@ -31,7 +31,7 @@ The section contains brief clarifications about the project resources that can b
 
 ![SCIFCHEX pipeline.](resources/pipeline.png)
 
-As briefly mentioned earlier, the `SciFCheX` pipeline follows the popular three-step pipeline approach: *evidence retrieval* (referred as *abstract retrieval*), *rationale selection*, and *label prediction*. A high-level purpose of such a system can be analyzed in the image above. To clarify again - this fact verification system is specifically tailored to scientific claims.
+As briefly mentioned earlier, the `SciFCheX` pipeline follows the popular multi-step pipeline approach: *evidence retrieval* (referred as *abstract retrieval*), *rationale selection*, and *label prediction*. A high-level purpose of such a system can be analyzed in the image above. To clarify again - this fact verification system is specifically tailored to scientific claims.
 
 ---
 
@@ -43,21 +43,21 @@ The task addressed by `SciFCheX` can be defined as provided in the `SCIVER` shar
 
 While developing the final pipeline for `SciFCheX`, the experiments included experimenting with the following approaches:
 - For `abstract retrieval`:
-    - 2 different sparse methods - `TF-IDF`, `BM25`.
-    - 4 different hybrid retrieval approaches (i.e., sparse + dense retrieval) - `BM25 + BGE-M3`, `BM25 + BERT`, `BM25 + SciBERT`, `BM25 + BioBERT-base`; where: all `BERT`-based approaches involved fine-tuning a classifier on the `train` set of `SciFact` dataset.
+    - 2 different sparse methods: `TF-IDF`, `BM25`.
+    - 4 different hybrid retrieval approaches (i.e., sparse + dense retrieval): `BM25 + BGE-M3`, `BM25 + BERT`, `BM25 + SciBERT`, `BM25 + BioBERT-base`; where: all `BERT`-based approaches involved fine-tuning a classifier on the `train` set of `SciFact` dataset.
 - For `rationale selection`: the approaches involved utilizing `RoBERTa-large`, `SciBERT`, `BioBERT-base`, `BioBERT-large`; where: each transformer was fine-tuned on `SciFact` only.
-- For `label prediction`: similarly as above, the approaches involved testing `RoBERTa-large`, `SciBERT`, `BioBERT-base`, `BioBERT-large` transformers; where: each transformer was fine-tuned on `SciFact`; in addition: there was tested a version of `RoBERTa-large` from `VERISCI` *(Wadden et al., 2020)*, that was pre-trained on `FEVER` and further fine-tuned on `SciFact` by the authors of that model.
+- For `label prediction`: similarly as the line above, the approaches involved testing `RoBERTa-large`, `SciBERT`, `BioBERT-base`, `BioBERT-large` transformers; where: each transformer was fine-tuned on `SciFact`; in addition - there was tested a version of `RoBERTa-large` from `VERISCI` *(Wadden et al., 2020)*, that was pre-trained on `FEVER` and further fine-tuned on `SciFact` by the authors of that model.
 
 ---
 
 **Thus, the most optimal settings concluded for the `SciFCheX` pipeline consists of:**
-- `AR`: `BM25 + SciBERT` classifier fine-tuned on `SciFact`. More about `AR` training can be found [here](https://github.com/chizo4/SciFCheX/blob/main/pipeline/training/ar_transformer_scifact.py).
-- `RS`: `SciBERT` transformer fine-tuned on `SciFact` to select rationales. More about `RS` training can be found [here](https://github.com/chizo4/SciFCheX/blob/main/pipeline/training/rs_transformer_scifact.py).
-- `LP`: `RoBERTa-large` transformer fine-tuned on `FEVER+SciFact`; this model was accessed from `VERISCI` resources, since this project did not include fine-tuning on `FEVER` (due to computational limitations).
+- `AR`: `BM25 + SciBERT` classifier fine-tuned on `SciFact`. More about `AR` training can be found [in this file](https://github.com/chizo4/SciFCheX/blob/main/pipeline/training/ar_transformer_scifact.py).
+- `RS`: `SciBERT` transformer fine-tuned on `SciFact` to select rationales. More about `RS` training can be found [in this file](https://github.com/chizo4/SciFCheX/blob/main/pipeline/training/rs_transformer_scifact.py).
+- `LP`: `RoBERTa-large` transformer fine-tuned on `FEVER+SciFact`; this model was accessed from `VERISCI` resources, since this project did not include fine-tuning on `FEVER` (due to computational limitations associated with the scope of this project).
 
 ## **Performance** 🏎️
 
-`Abstract Retrieval`: The following table reports results for all tested approaches, evaluated on the `dev` set of `SciFact`. The best performing `AR` approach in isolation, i.e., `BM25 + BioBERT-base` is annotated respectively. Still, the full-pipeline uses `SciBERT`, since it was found to perform better when integrated.
+`Abstract Retrieval`: The following table reports the results for all tested approaches, evaluated on the `dev` set of `SciFact`. The best performing `AR` approach in isolation, i.e., `BM25 + BioBERT-base` is annotated respectively. Still, the full-pipeline uses `SciBERT`, since it was found to perform better when integrated into the full-pipeline.
 
 | Approach |   F1   | Precision | Recall | Hit-one | Hit-all |
 |----------|--------|-----------|--------|---------|---------|
@@ -90,7 +90,7 @@ While developing the final pipeline for `SciFCheX`, the experiments included exp
 
 ---
 
-Overall, it can be concluded that the improvements applied to `evidence retrieval` lead to major improvements in the full-pipeline performance, which was further confirmed in the official [SCIVER Shared Task Leaderboard](https://leaderboard.allenai.org/scifact/submissions/public), where the individual `SCIFCHEX` report can be found [here](https://leaderboard.allenai.org/scifact/submission/cp4hdtfitdc6sv0kle60).
+Overall, it can be observed that the improvements applied to `evidence retrieval` lead to major improvements in the full-pipeline performance, which was further confirmed in the official [SCIVER Shared Task Leaderboard](https://leaderboard.allenai.org/scifact/submissions/public), where the individual `SCIFCHEX` report can be found [here](https://leaderboard.allenai.org/scifact/submission/cp4hdtfitdc6sv0kle60). At the time of the model submission (i.e., in early May 2024), `SCIFCHEX` placed in TOP 50 submissions worldwide.
 
 ## **Dependencies & Experimental Environment** 🧪
 
