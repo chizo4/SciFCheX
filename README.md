@@ -98,7 +98,7 @@ Overall, it can be observed that the improvements applied to `evidence retrieval
 > The presented `SciFCheX` model has been tested, trained and evaluated using `NVIDIA A100 GPU` / `NVIDIA L4 GPU` using `Google Colab Pro+` account. The initial development attempts involved working on `HPC` unit provided by the *University of Sheffield* (running on `CentOS Linux`), but there were issues associated with `CUDA` compatibility issues in relation to `torch` version required for this project (`1.7.0`). Thereby, it is recommended to use `CUDA 11.1.X` to run this project. Moreover, it is worth noting that the model is unlikely to successfuly execute on other `OS`, such as: `Windows`, or `macOS` (NB: the `ARM` architecture on `macOS` might not support dependencies for `requirements_scifchex.txt`).
 
 1. **Clone Repository:**
-   Clone the repository and access it through the following commands (NB: Skip the step if you were provided with the code base. Just make sure you navigate inside the root of the projet):
+   Clone the repository and access it through the following commands (NB: Skip the step if you were provided with the code base. Just make sure you navigate inside the root of the project):
 
    ```bash
    git pull https://github.com/chizo4/SciFCheX.git && cd SciFCheX
@@ -118,8 +118,8 @@ Overall, it can be observed that the improvements applied to `evidence retrieval
    conda --version
    ```
 
-   > [!WARNING]
-   > If your shell fails to recognize the command (which is very unlikely if you are a computer scientist), please install `conda` following the official guidelines: [conda docs](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
+> [!WARNING]
+> If your shell fails to recognize the command (which is very unlikely if you are a computer scientist), please install `conda` following the official guidelines: [conda docs](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
 
 4. **Environment Setup:**
    The project has been provided with an automation file, that will set up all the necessary environments without further supervision:
